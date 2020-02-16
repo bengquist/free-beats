@@ -24,7 +24,8 @@ function HeaderNav() {
 export default HeaderNav;
 
 const Container = styled.header`
-  box-shadow: 0 2px 5px gray;
+  background: ${props => props.theme.primary};
+  box-shadow: 0 2px 5px black;
 `;
 
 const Inner = styled.div`
@@ -39,14 +40,15 @@ const Inner = styled.div`
 const ButtonLink = styled(Link)`
   padding: 1rem;
   transition: 0.3s;
+  color: white;
 
   :hover {
-    background: red;
-    color: white;
+    background: ${props => props.theme.accent};
   }
 `;
 
 const Logo = styled.div`
   padding: 1rem;
   font-weight: 800;
+  color: ${props => props.theme.accent};
 `;

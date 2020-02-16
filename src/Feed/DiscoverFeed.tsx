@@ -7,7 +7,7 @@ import { fluidGrid } from "../Styles/helpers";
 function DiscoverFeed() {
   const arr = [beat, beat, beat, beat, beat, beat, beat];
   return (
-    <Container css={fluidGrid()}>
+    <Container>
       {arr.map((beat, index) => (
         <BeatCard key={index} beat={beat} />
       ))}
@@ -17,4 +17,10 @@ function DiscoverFeed() {
 
 export default DiscoverFeed;
 
-const Container = styled.div``;
+const Container = styled.div`
+  ${fluidGrid()};
+  padding: 1rem;
+  background: ${props => props.theme.white};
+  box-shadow: ${props => props.theme.lightBoxShadow};
+  border-radius: 5px;
+`;

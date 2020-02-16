@@ -12,6 +12,10 @@ const GlobalStyle = createGlobalStyle`
     * {
         box-sizing: border-box;
         font-family: 'Open Sans', sans-serif;
+
+        :focus {
+            outline: #C7D801 solid 2px;
+        }
     }
 
     html, body, div, span, object, iframe,
@@ -37,6 +41,7 @@ const GlobalStyle = createGlobalStyle`
 
     body {
         line-height:1;
+        background: #f2f2f2;
     }
 
     article,aside,details,figcaption,figure,
@@ -112,6 +117,13 @@ const GlobalStyle = createGlobalStyle`
     a {
         text-decoration: none;
         color: black;
+    }
+
+    button {
+        border: none;
+        background: none;
+        cursor: pointer;
+        padding: 0;
     }
 `;
 

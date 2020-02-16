@@ -4,10 +4,10 @@ export type Beat = {
   creatorName: string;
   creatorId: string;
   genre: string[];
-  mood: string[];
+  type: string[];
   price: number;
   audio: string;
-  thumbnail: string;
+  image: string;
   uploadDate: string;
   plays: number;
   purchased: number;

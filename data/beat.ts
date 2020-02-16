@@ -1,13 +1,16 @@
+import audio from "../data/post-malone.mp3";
+import image from "../data/post-malone.png";
+
 export default {
-  title: "Post Malone Type Beat",
+  title: "Pop My Colla",
   description: "This was inspired by my great great great grandfather",
   creatorName: "Bob",
   creatorId: "kladhfsakljsdfh",
   genre: ["Pop", "Trap", "Hip Hop"],
-  mood: ["Chill", "Relaxing", "Upbeat"],
+  type: ["Post Malone", "Relaxing", "Upbeat"],
   price: 19.99,
-  audio: "audio.mp3",
-  thumbnail: "picture.jpg",
+  audio: audio,
+  image: image,
   uploadDate: "03/02/2019",
   plays: 123,
   purchased: 1
