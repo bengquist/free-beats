@@ -6,9 +6,11 @@ function HeaderNav() {
   return (
     <Container>
       <Inner>
-        <ButtonLink to="/auth">Log In</ButtonLink>
-        <ButtonLink to="/auth">Feed</ButtonLink>
-        <ButtonLink to="/auth">Discover</ButtonLink>
+        <div>
+          <ButtonLink to="/auth">Log In</ButtonLink>
+          <ButtonLink to="/auth">Feed</ButtonLink>
+          <ButtonLink to="/auth">Discover</ButtonLink>
+        </div>
       </Inner>
     </Container>
   );
@@ -28,4 +30,6 @@ const Inner = styled.div`
   display: flex;
 `;
 
-const ButtonLink = styled(Link)``;
+const ButtonLink = styled(Link)`
+  padding: 1rem;
+`;
