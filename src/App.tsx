@@ -8,11 +8,11 @@ import GlobalStyle from "./Styles/GlobalStyle";
 function App() {
   return (
     <Router>
+      <HeaderNav />
       <Container>
-        <HeaderNav />
         <Routes />
-        <GlobalStyle />
       </Container>
+      <GlobalStyle />
     </Router>
   );
 }
