@@ -1,5 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+import routeCodes from "../Routes/routeCodes";
 import { spacedChildren } from "../Styles/helpers";
 import BeatActions from "./BeatActions";
 import BeatTypeLabel from "./BeatTypeLabel";
@@ -15,7 +17,10 @@ function BeatCard({ beat }: Props) {
       <Image src={beat.image} alt="" />
       <Info>
         <Title>{beat.title}</Title>
-        <Creator>Producer: {beat.creatorName}</Creator>
+        <p>
+          Producer:
+          <Creator to={routeCodes.PROFILE}>{beat.creatorName}</Creator>
+        </p>
         <Labels>
           {beat.types.map(type => (
             <BeatTypeLabel key={type} type={type} />
@@ -55,9 +60,15 @@ const Info = styled.div`
 
 const Title = styled.h1`
   font-size: 1rem;
+  font-weight: 800;
+  color: ${props => props.theme.primary};
 `;
 
-const Creator = styled.p``;
+const Creator = styled(Link)`
+  :hover {
+    text-decoration: underline;
+  }
+`;
 
 const Labels = styled.div`
   > * {

@@ -34,3 +34,12 @@ export const flexSpaceBetween = css`
   display: flex;
   justify-content: space-between;
 `;
+
+export const flexAlignCenter = css`
+  display: flex;
+  align-items: center;
+`;
+
+export const round = (radius = 0.25) => css`
+  border-radius: ${radius}rem;
+`;

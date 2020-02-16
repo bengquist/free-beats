@@ -1,17 +1,18 @@
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import styled from "styled-components";
-import { spacedChildren } from "../Styles/helpers";
+import styled, { css } from "styled-components";
+import { round, spacedChildren } from "../Styles/helpers";
 
 type Props = {
   icon: IconProp;
   text?: string | number;
+  onClick?: () => void;
 };
 
-function IconLabel({ icon, text }: Props) {
+function IconLabel({ icon, text, onClick }: Props) {
   return (
-    <Container>
+    <Container onClick={onClick} hasAction={Boolean(onClick)}>
       <FontAwesomeIcon icon={icon} />
       {text && <p>{text}</p>}
     </Container>
@@ -20,10 +21,19 @@ function IconLabel({ icon, text }: Props) {
 
 export default IconLabel;
 
-const Container = styled.button`
+const invertStyles = css`
+  color: ${props => props.theme.accent};
+  background: ${props => props.theme.primary};
+`;
+
+const Container = styled.button<{ hasAction?: boolean }>`
   display: flex;
   align-items: center;
-  ${spacedChildren(0, 0.25, 0, 0.25)}
+  padding: 0 .25rem;
 
   color: ${props => props.theme.primary};
+  ${spacedChildren(0, 0.25, 0, 0.25)}
+  ${round()}
+
+  ${props => props.hasAction && invertStyles}
 `;

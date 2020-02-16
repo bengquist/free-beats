@@ -1,12 +1,9 @@
-import {
-  faDownload,
-  faPlay,
-  faShoppingBag
-} from "@fortawesome/free-solid-svg-icons";
+import { faDownload, faPlay } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import styled from "styled-components";
-import { flexSpaceBetween } from "../Styles/helpers";
+import { flexSpaceBetween, spacedChildren } from "../Styles/helpers";
 import IconLabel from "../Styles/IconLabel";
+import BeatPriceLabel from "./BeatPriceLabel";
 import { Beat } from "./types";
 
 type Props = {
@@ -18,9 +15,9 @@ function BeatActions({ beat }: Props) {
     <Container>
       <IconLabel icon={faPlay} text={beat.plays} />
 
-      <div css={flexSpaceBetween}>
-        <IconLabel icon={faDownload} />
-        <IconLabel icon={faShoppingBag} />
+      <div css={[flexSpaceBetween, spacedChildren(0, 0, 0, 0.25)]}>
+        <IconLabel icon={faDownload} onClick={() => console.log("yo")} />
+        <BeatPriceLabel beat={beat} />
       </div>
     </Container>
   );
