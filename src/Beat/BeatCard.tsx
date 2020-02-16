@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 import { Beat } from "./types";
 
 type Props = {
@@ -6,7 +7,9 @@ type Props = {
 };
 
 function BeatCard({ beat }: Props) {
-  return <div>{beat.title}</div>;
+  return <Container>{beat.title}</Container>;
 }
 
 export default BeatCard;
+
+const Container = styled.div``;
