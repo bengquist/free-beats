@@ -18,7 +18,7 @@ function BeatCard({ beat }: Props) {
       <Info>
         <Title>{beat.title}</Title>
         <p>
-          Producer:
+          Producer:{" "}
           <Creator to={routeCodes.PROFILE}>{beat.creatorName}</Creator>
         </p>
         <Labels>
@@ -65,8 +65,10 @@ const Title = styled.h1`
 `;
 
 const Creator = styled(Link)`
+  transition: 0.2s;
+
   :hover {
-    text-decoration: underline;
+    color: ${props => props.theme.gray};
   }
 `;
 

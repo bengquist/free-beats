@@ -22,6 +22,7 @@ function IconLabel({ icon, text, onClick }: Props) {
 export default IconLabel;
 
 const invertStyles = css`
+  padding: 0 0.25rem;
   color: ${props => props.theme.accent};
   background: ${props => props.theme.primary};
 `;
@@ -29,10 +30,10 @@ const invertStyles = css`
 const Container = styled.button<{ hasAction?: boolean }>`
   display: flex;
   align-items: center;
-  padding: 0 .25rem;
+  
 
   color: ${props => props.theme.primary};
-  ${spacedChildren(0, 0.25, 0, 0.25)}
+  ${spacedChildren(0, 0.1, 0, 0.1)}
   ${round()}
 
   ${props => props.hasAction && invertStyles}

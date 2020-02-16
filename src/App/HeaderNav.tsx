@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 import routeCodes from "../Routes/routeCodes";
+import HeaderNavLink, { activeNavLinkStyle } from "./HeaderNavLink";
 
 function HeaderNav() {
   return (
@@ -36,9 +36,13 @@ const Inner = styled.div`
 
   display: flex;
   justify-content: space-between;
+
+  .selected {
+    ${activeNavLinkStyle}
+  }
 `;
 
-const ButtonLink = styled(Link)`
+const ButtonLink = styled(HeaderNavLink)`
   padding: 1rem;
   transition: 0.3s;
   color: ${props => props.theme.white};

@@ -70,6 +70,7 @@ const GlobalStyle = createGlobalStyle`
         font-size:100%;
         background:transparent;
         display: inline-block;
+        color: #212528;
     }
 
     /* change colours to suit your needs */
