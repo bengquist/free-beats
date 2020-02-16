@@ -28,6 +28,15 @@ module.exports = {
             loader: require.resolve("eslint-loader")
           }
         ]
+      },
+      {
+        test: /\.(png|jpg|gif|svg|ttf|woff|eot|mp4|zip|pdf)$/i,
+        use: [
+          {
+            loader: "url-loader",
+            options: { name: "static/[hash:16].[ext]", limit: 8192 }
+          }
+        ]
       }
     ]
   },

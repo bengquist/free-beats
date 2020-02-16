@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import logo from "../Assets/logo.svg";
 
 function HeaderNav() {
   return (
@@ -11,6 +12,7 @@ function HeaderNav() {
           <ButtonLink to="/auth">Feed</ButtonLink>
           <ButtonLink to="/auth">Discover</ButtonLink>
         </div>
+        <img src={logo} alt="" />
       </Inner>
     </Container>
   );
@@ -27,9 +29,15 @@ const Inner = styled.div`
   max-width: 1200px;
   margin: auto;
 
-  display: flex;
+  padding: 1rem;
 `;
 
 const ButtonLink = styled(Link)`
   padding: 1rem;
+  transition: 0.3s;
+
+  :hover {
+    background: red;
+    color: white;
+  }
 `;
