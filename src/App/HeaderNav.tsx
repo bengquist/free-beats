@@ -26,7 +26,6 @@ const Inner = styled.div`
   margin: auto;
 
   display: flex;
-  background: blue;
 `;
 
 const ButtonLink = styled(Link)``;

@@ -31,6 +31,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
+        font-family: 'Open Sans', sans-serif;
         line-height:1;
     }
 
@@ -102,6 +103,11 @@ const GlobalStyle = createGlobalStyle`
 
     input, select {
         vertical-align:middle;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
     }
 `;
 
