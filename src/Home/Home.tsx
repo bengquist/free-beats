@@ -1,12 +1,15 @@
 import React from "react";
+import styled from "styled-components";
 
 function Home() {
   return (
-    <div className="text-purple-600">
+    <Container>
       <p>Home</p>
       <p>Yo</p>
-    </div>
+    </Container>
   );
 }
 
 export default Home;
+
+const Container = styled.div``;
