@@ -7,7 +7,7 @@ export default {
   creatorName: "Bob",
   creatorId: "kladhfsakljsdfh",
   genre: ["Pop", "Trap", "Hip Hop"],
-  type: ["Post Malone", "Relaxing", "Upbeat"],
+  types: ["Post Malone", "Relaxing", "Upbeat"],
   price: 19.99,
   audio: audio,
   image: image,

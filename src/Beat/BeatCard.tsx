@@ -1,5 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import { spacedChildren } from "../Styles/helpers";
+import BeatActions from "./BeatActions";
+import BeatTypeLabel from "./BeatTypeLabel";
 import { Beat } from "./types";
 
 type Props = {
@@ -13,8 +16,12 @@ function BeatCard({ beat }: Props) {
       <Info>
         <Title>{beat.title}</Title>
         <Creator>Producer: {beat.creatorName}</Creator>
-        <p>Types</p>
-        <Options>plays, download, price</Options>
+        <Labels>
+          {beat.types.map(type => (
+            <BeatTypeLabel key={type} type={type} />
+          ))}
+        </Labels>
+        <BeatActions beat={beat} />
       </Info>
     </Container>
   );
@@ -24,9 +31,16 @@ export default BeatCard;
 
 const Container = styled.button`
   width: 100%;
-  box-shadow: ${props => props.theme.lightBoxShadow};
+  box-shadow: ${props => props.theme.boxShadow()};
   background: ${props => props.theme.white};
   text-align: left;
+  border-radius: 5px;
+  transition: 0.3s;
+  overflow: hidden;
+
+  :hover {
+    box-shadow: ${props => props.theme.boxShadow(props.theme.gray)};
+  }
 `;
 
 const Image = styled.img`
@@ -36,6 +50,7 @@ const Image = styled.img`
 
 const Info = styled.div`
   padding: 0 0.5rem 0.5rem 0.5rem;
+  ${spacedChildren(0, 0.25, 0.25, 0)}
 `;
 
 const Title = styled.h1`
@@ -44,4 +59,8 @@ const Title = styled.h1`
 
 const Creator = styled.p``;
 
-const Options = styled.div``;
+const Labels = styled.div`
+  > * {
+    margin: 0 0.1rem 0.1rem 0;
+  }
+`;

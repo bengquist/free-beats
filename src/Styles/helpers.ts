@@ -23,3 +23,14 @@ export const fluidGrid = ({
     grid-template-columns: 1fr;
   }
 `;
+
+export const spacedChildren = (top = 0, right = 0, bottom = 0, left = 0) => css`
+  > * {
+    margin: ${top}rem ${right}rem ${bottom}rem ${left}rem;
+  }
+`;
+
+export const flexSpaceBetween = css`
+  display: flex;
+  justify-content: space-between;
+`;

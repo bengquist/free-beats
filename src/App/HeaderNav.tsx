@@ -14,6 +14,7 @@ function HeaderNav() {
           <ButtonLink to={routeCodes.BATTLE}>Battle</ButtonLink>
           <ButtonLink to={routeCodes.FEED_LIKED}>Liked</ButtonLink>
           <ButtonLink to={routeCodes.PROFILE}>Profile</ButtonLink>
+          <ButtonLink to={routeCodes.PROFILE}>Upload</ButtonLink>
         </div>
         <Logo>FREE BEATS</Logo>
       </Inner>
@@ -40,10 +41,11 @@ const Inner = styled.div`
 const ButtonLink = styled(Link)`
   padding: 1rem;
   transition: 0.3s;
-  color: white;
+  color: ${props => props.theme.white};
 
   :hover {
     background: ${props => props.theme.accent};
+    color: ${props => props.theme.primary};
   }
 `;
 

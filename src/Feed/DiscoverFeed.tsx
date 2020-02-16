@@ -21,6 +21,6 @@ const Container = styled.div`
   ${fluidGrid()};
   padding: 1rem;
   background: ${props => props.theme.white};
-  box-shadow: ${props => props.theme.lightBoxShadow};
+  box-shadow: ${props => props.theme.boxShadow()};
   border-radius: 5px;
 `;
