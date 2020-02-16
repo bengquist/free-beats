@@ -14,6 +14,8 @@ declare module "*.gif" {
   export default url;
 }
 
+import {} from "styled-components/cssprop";
+
 declare module "*.svg" {
   const url: string;
   export default url;
