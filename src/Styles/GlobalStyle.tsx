@@ -9,6 +9,11 @@ const GlobalStyle = createGlobalStyle`
     Twitter: @rich_clark 
     */
 
+    * {
+        box-sizing: border-box;
+        font-family: 'Open Sans', sans-serif;
+    }
+
     html, body, div, span, object, iframe,
     h1, h2, h3, h4, h5, h6, p, blockquote, pre,
     abbr, address, cite, code,
@@ -31,7 +36,6 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        font-family: 'Open Sans', sans-serif;
         line-height:1;
     }
 
@@ -58,8 +62,8 @@ const GlobalStyle = createGlobalStyle`
         margin:0;
         padding:0;
         font-size:100%;
-        vertical-align:baseline;
         background:transparent;
+        display: inline-block;
     }
 
     /* change colours to suit your needs */

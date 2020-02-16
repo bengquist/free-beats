@@ -19,4 +19,8 @@ function App() {
 
 export default App;
 
-const Container = styled.div``;
+const Container = styled.div`
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem;
+`;

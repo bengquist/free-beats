@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from "react";
-import { Redirect, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
+import routeCodes from "./routeCodes";
 
 const Home = lazy(() => import("../Home/Home"));
 const DiscoverFeed = lazy(() => import("../Feed/DiscoverFeed"));
@@ -9,10 +10,9 @@ function Routes() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Switch>
-        <Route path="/discover" component={DiscoverFeed} />
-        <Route path="/following" component={FollowingFeed} />
-        <Route path="/" component={Home} />
-        <Redirect to="/" />
+        <Route path={routeCodes.FEED_DISCOVER} component={DiscoverFeed} />
+        <Route path={routeCodes.FEED_FOLLOWING} component={FollowingFeed} />
+        <Route exact path="/" component={Home} />
       </Switch>
     </Suspense>
   );

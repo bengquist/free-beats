@@ -1,7 +1,7 @@
 export default {
   title: "Post Malone Type Beat",
   description: "This was inspired by my great great great grandfather",
-  creator: "Bob",
+  creatorName: "Bob",
   creatorId: "kladhfsakljsdfh",
   genre: ["Pop", "Trap", "Hip Hop"],
   mood: ["Chill", "Relaxing", "Upbeat"],

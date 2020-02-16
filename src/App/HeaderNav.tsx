@@ -23,7 +23,7 @@ function HeaderNav() {
 
 export default HeaderNav;
 
-const Container = styled.div`
+const Container = styled.header`
   box-shadow: 0 2px 5px gray;
 `;
 
@@ -31,7 +31,6 @@ const Inner = styled.div`
   width: 100%;
   max-width: 1200px;
   margin: auto;
-  padding: 1rem;
 
   display: flex;
   justify-content: space-between;
@@ -48,6 +47,6 @@ const ButtonLink = styled(Link)`
 `;
 
 const Logo = styled.div`
-  padding: 0;
+  padding: 1rem;
   font-weight: 800;
 `;
