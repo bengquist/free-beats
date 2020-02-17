@@ -10,7 +10,7 @@ function BeatAudioVisualizer({ audio }: Props) {
 
   useEffect(() => {
     window.AudioContext = window.AudioContext || window.webkitAudioContext;
-    // audio.load();
+    audio.load();
     const context = new window.AudioContext();
     const src = context.createMediaElementSource(audio);
     const analyser = context.createAnalyser();
@@ -24,7 +24,6 @@ function BeatAudioVisualizer({ audio }: Props) {
     analyser.fftSize = 256;
 
     const bufferLength = analyser.frequencyBinCount;
-    console.log(bufferLength);
 
     const dataArray = new Uint8Array(bufferLength);
 
