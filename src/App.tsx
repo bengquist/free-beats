@@ -1,3 +1,5 @@
+import { ApolloProvider } from "@apollo/react-hooks";
+import ApolloClient from "apollo-boost";
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import styled, { ThemeProvider } from "styled-components";
@@ -6,19 +8,25 @@ import Routes from "./Routes/Routes";
 import GlobalStyle from "./Styles/GlobalStyle";
 import theme from "./Styles/theme";
 
+const client = new ApolloClient({
+  uri: "http://localhost:4000/graphql"
+});
+
 function App() {
   return (
-    <Router>
+    <ApolloProvider client={client}>
       <ThemeProvider theme={theme}>
-        <Container>
-          <HeaderNav />
-          <Body>
-            <Routes />
-          </Body>
-          <GlobalStyle />
-        </Container>
+        <Router>
+          <Container>
+            <HeaderNav />
+            <Body>
+              <Routes />
+            </Body>
+            <GlobalStyle />
+          </Container>
+        </Router>
       </ThemeProvider>
-    </Router>
+    </ApolloProvider>
   );
 }
 
