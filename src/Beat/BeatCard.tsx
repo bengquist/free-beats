@@ -4,6 +4,7 @@ import styled from "styled-components";
 import routeCodes from "../Routes/routeCodes";
 import { spacedChildren } from "../Styles/helpers";
 import BeatActions from "./BeatActions";
+import BeatAudio from "./BeatAudio";
 import BeatTypeLabel from "./BeatTypeLabel";
 import { Beat } from "./types";
 
@@ -14,7 +15,8 @@ type Props = {
 function BeatCard({ beat }: Props) {
   return (
     <Container>
-      <Image src={beat.image} alt="" />
+      <BeatAudio beat={beat} />
+
       <Info>
         <Title>{beat.title}</Title>
         <p>
@@ -34,10 +36,11 @@ function BeatCard({ beat }: Props) {
 
 export default BeatCard;
 
-const Container = styled.button`
-  width: 100%;
+const Container = styled.div`
   box-shadow: ${props => props.theme.boxShadow()};
   background: ${props => props.theme.white};
+  width: 100%;
+  font-size: 0.85rem;
   text-align: left;
   border-radius: 5px;
   transition: 0.3s;
@@ -48,18 +51,13 @@ const Container = styled.button`
   }
 `;
 
-const Image = styled.img`
-  width: 100%;
-  object-fit: cover;
-`;
-
 const Info = styled.div`
   padding: 0 0.5rem 0.5rem 0.5rem;
-  ${spacedChildren(0, 0.25, 0.25, 0)}
+  ${spacedChildren(0.5, 0, 0, 0)}
 `;
 
 const Title = styled.h1`
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 800;
   color: ${props => props.theme.primary};
 `;

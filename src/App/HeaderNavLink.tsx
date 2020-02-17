@@ -1,6 +1,7 @@
 import React, { ReactNode } from "react";
 import { NavLink, NavLinkProps } from "react-router-dom";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
+import { primaryColorAccentBackground } from "../Styles/helpers";
 
 type Props = NavLinkProps & {
   children: ReactNode;
@@ -16,18 +17,13 @@ function HeaderNavLink(props: Props) {
 
 export default HeaderNavLink;
 
-export const activeNavLinkStyle = css`
-  background: ${props => props.theme.accent};
-  color: ${props => props.theme.primary};
-`;
-
 const Container = styled(NavLink)`
   padding: 1rem;
   transition: 0.3s;
   color: ${props => props.theme.white};
 
   :hover {
-    ${activeNavLinkStyle}
+    ${primaryColorAccentBackground}
   }
 
   :focus {

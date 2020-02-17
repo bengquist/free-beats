@@ -2,7 +2,11 @@ import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import styled, { css } from "styled-components";
-import { round, spacedChildren } from "../Styles/helpers";
+import {
+  accentColorPrimaryBackground,
+  round,
+  spacedChildren
+} from "../Styles/helpers";
 
 type Props = {
   icon: IconProp;
@@ -23,8 +27,14 @@ export default IconLabel;
 
 const invertStyles = css`
   padding: 0 0.25rem;
-  color: ${props => props.theme.accent};
-  background: ${props => props.theme.primary};
+  transition: 0.3s;
+
+  ${accentColorPrimaryBackground};
+  color: ${props => props.theme.gray};
+
+  :hover {
+    color: ${props => props.theme.accent};
+  }
 `;
 
 const Container = styled.button<{ hasAction?: boolean }>`

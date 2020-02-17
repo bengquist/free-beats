@@ -40,6 +40,29 @@ export const flexAlignCenter = css`
   align-items: center;
 `;
 
+export const flexCenter = css`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const round = (radius = 0.25) => css`
   border-radius: ${radius}rem;
+`;
+
+export const primaryColorAccentBackground = css`
+  color: ${props => props.theme.primary};
+  background: ${props => props.theme.accent};
+`;
+
+export const accentColorPrimaryBackground = css`
+  color: ${props => props.theme.accent};
+  background: ${props => props.theme.primary};
+`;
+
+export const absoluteCenter = css`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;

@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import routeCodes from "../Routes/routeCodes";
-import HeaderNavLink, { activeNavLinkStyle } from "./HeaderNavLink";
+import { primaryColorAccentBackground } from "../Styles/helpers";
+import HeaderNavLink from "./HeaderNavLink";
 
 function HeaderNav() {
   return (
@@ -15,6 +16,7 @@ function HeaderNav() {
           <ButtonLink to={routeCodes.FEED_LIKED}>Liked</ButtonLink>
           <ButtonLink to={routeCodes.PROFILE}>Profile</ButtonLink>
           <ButtonLink to={routeCodes.PROFILE}>Upload</ButtonLink>
+          <ButtonLink to={routeCodes.PROFILE}>Cart</ButtonLink>
         </div>
         <Logo>FREE BEATS</Logo>
       </Inner>
@@ -38,7 +40,7 @@ const Inner = styled.div`
   justify-content: space-between;
 
   .selected {
-    ${activeNavLinkStyle}
+    ${primaryColorAccentBackground}
   }
 `;
 
@@ -48,8 +50,7 @@ const ButtonLink = styled(HeaderNavLink)`
   color: ${props => props.theme.white};
 
   :hover {
-    background: ${props => props.theme.accent};
-    color: ${props => props.theme.primary};
+    ${primaryColorAccentBackground}
   }
 `;
 
