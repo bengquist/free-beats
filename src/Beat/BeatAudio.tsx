@@ -1,6 +1,6 @@
 import { faPlayCircle, faStopCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { absoluteCenter, flexCenter } from "../Styles/helpers";
 import { Beat } from "./types";
@@ -13,13 +13,21 @@ function BeatAudio({ beat }: Props) {
   const [isPaused, setIsPaused] = useState(true);
   const audioRef = useRef<HTMLAudioElement>(null);
 
+  useEffect(() => {
+    audioRef.current.addEventListener("pause", () => setIsPaused(true));
+    audioRef.current.addEventListener("play", () => setIsPaused(false));
+
+    return () => {
+      audioRef.current.removeEventListener("pause", () => setIsPaused(true));
+      audioRef.current.removeEventListener("play", () => setIsPaused(false));
+    };
+  });
+
   const audioHandler = () => {
     if (audioRef.current.paused) {
       audioRef.current.play();
-      setIsPaused(false);
     } else {
       audioRef.current.pause();
-      setIsPaused(true);
     }
     console.log(audioRef);
   };
@@ -32,9 +40,9 @@ function BeatAudio({ beat }: Props) {
       <Image src={beat.image} alt="" />
       <PlayButton paused={isPaused}>
         {isPaused ? (
-          <FontAwesomeIcon icon={faStopCircle} />
-        ) : (
           <FontAwesomeIcon icon={faPlayCircle} />
+        ) : (
+          <FontAwesomeIcon icon={faStopCircle} />
         )}
       </PlayButton>
     </Container>
