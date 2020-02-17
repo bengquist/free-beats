@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { absoluteCenter, flexCenter } from "../Styles/helpers";
+import BeatAudioVisualizer from "./BeatAudioVisualizer";
 import { Beat } from "./types";
 
 type Props = {
@@ -11,80 +12,32 @@ type Props = {
 
 function BeatAudio({ beat }: Props) {
   const [isPaused, setIsPaused] = useState(true);
-  const containerRef = useRef<HTMLButtonElement>(null);
-  const audioRef = useRef<HTMLAudioElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [audio, setAudio] = useState(null);
 
   useEffect(() => {
-    audioRef.current.addEventListener("pause", () => setIsPaused(true));
-    audioRef.current.addEventListener("play", () => setIsPaused(false));
+    if (audio) {
+      audio.addEventListener("pause", () => setIsPaused(true));
+      audio.addEventListener("play", () => setIsPaused(false));
 
-    return () => {
-      audioRef.current.removeEventListener("pause", () => setIsPaused(true));
-      audioRef.current.removeEventListener("play", () => setIsPaused(false));
-    };
-  });
-
-  useEffect(() => {
-    window.AudioContext = window.AudioContext || window.webkitAudioContext;
-    audioRef.current.load();
-    const context = new window.AudioContext();
-    const src = context.createMediaElementSource(audioRef.current);
-    const analyser = context.createAnalyser();
-
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
-
-    src.connect(analyser);
-    analyser.connect(context.destination);
-
-    analyser.fftSize = 256;
-
-    const bufferLength = analyser.frequencyBinCount;
-    console.log(bufferLength);
-
-    const dataArray = new Uint8Array(bufferLength);
-
-    const WIDTH = canvas.width;
-    const HEIGHT = canvas.height;
-
-    const barWidth = (WIDTH / bufferLength) * 2.5;
-    let barHeight = 0;
-    let x = 0;
-
-    const renderFrame = () => {
-      requestAnimationFrame(renderFrame);
-
-      x = 0;
-
-      analyser.getByteFrequencyData(dataArray);
-
-      ctx.clearRect(0, 0, WIDTH, HEIGHT);
-
-      for (let i = 0; i < bufferLength; i++) {
-        barHeight = dataArray[i] / 2;
-
-        ctx.fillStyle = "#C7D801";
-        ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
-
-        x += barWidth + 1;
-      }
-    };
-
-    renderFrame();
-  }, []);
+      return () => {
+        audio.removeEventListener("pause", () => setIsPaused(true));
+        audio.removeEventListener("play", () => setIsPaused(false));
+      };
+    }
+  }, [audio]);
 
   const audioHandler = () => {
-    if (audioRef.current.paused) {
-      audioRef.current.play();
+    if (audio.paused) {
+      audio.play();
     } else {
-      audioRef.current.pause();
+      audio.pause();
     }
   };
 
   return (
     <Container onClick={audioHandler} ref={containerRef}>
-      <audio ref={audioRef}>
+      <audio ref={e => setAudio(e)}>
         <source src={beat.audio} type="audio/mp3" />
       </audio>
       <Image src={beat.image} alt="" />
@@ -94,7 +47,7 @@ function BeatAudio({ beat }: Props) {
         ) : (
           <FontAwesomeIcon icon={faStopCircle} />
         )}
-        <Canvas ref={canvasRef} />
+        {audio && <BeatAudioVisualizer audio={audio} />}
       </PlayButton>
     </Container>
   );
@@ -127,11 +80,4 @@ const PlayButton = styled.div<{ paused?: boolean }>`
   :hover {
     opacity: 1;
   }
-`;
-
-const Canvas = styled.canvas`
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 50px;
 `;
