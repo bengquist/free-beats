@@ -1,4 +1,7 @@
-import { faPlayCircle, faStopCircle } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPlayCircle,
+  faStopCircle
+} from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
