@@ -39,11 +39,15 @@ function BeatAudio({ beat }: Props) {
   };
 
   return (
-    <Container onClick={audioHandler} ref={containerRef}>
+    <Container
+      background={beat.image}
+      onClick={audioHandler}
+      ref={containerRef}
+    >
       <audio ref={e => setAudio(e)}>
         <source src={beat.audio} type="audio/mp3" />
       </audio>
-      <Image src={beat.image} alt="" />
+
       <PlayButton paused={isPaused}>
         {isPaused ? (
           <FontAwesomeIcon icon={faPlayCircle} />
@@ -58,14 +62,13 @@ function BeatAudio({ beat }: Props) {
 
 export default BeatAudio;
 
-const Container = styled.div`
+const Container = styled.div<{ background: string }>`
   cursor: pointer;
   position: relative;
-`;
+  background: url(${props => props.background});
+  background-size: cover;
 
-const Image = styled.img`
-  width: 100%;
-  object-fit: cover;
+  padding-bottom: 50%;
 `;
 
 const PlayButton = styled.div<{ paused?: boolean }>`
