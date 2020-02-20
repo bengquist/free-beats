@@ -2,8 +2,8 @@ import audio from "../data/post-malone.mp3";
 import image from "../data/post-malone.png";
 
 export default {
-  id: "fakjdhsfkajlfhakl",
-  title: "Pop My Colla",
+  id: "lak;fjalknmc",
+  title: "Nah",
   description: "This was inspired by my great great great grandfather",
   creatorName: "Bob",
   creatorId: "kladhfsakljsdfh",

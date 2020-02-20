@@ -1,4 +1,5 @@
 export type Beat = {
+  id: string;
   title: string;
   description: string;
   creatorName: string;

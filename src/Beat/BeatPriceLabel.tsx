@@ -1,7 +1,8 @@
 import { faShoppingBag } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useContext, useMemo } from "react";
 import styled from "styled-components";
+import { CartContext } from "../Cart/CartContext";
 import {
   accentColorPrimaryBackground,
   flexAlignCenter,
@@ -16,11 +17,16 @@ type Props = {
 };
 
 function BeatPriceLabel({ beat }: Props) {
-  return (
-    <Container>
-      <FontAwesomeIcon icon={faShoppingBag} />
-      <p>{beat.price}</p>
-    </Container>
+  const { addToCart } = useContext(CartContext);
+
+  return useMemo(
+    () => (
+      <Container onClick={() => addToCart(beat)}>
+        <FontAwesomeIcon icon={faShoppingBag} />
+        <p>{beat.price}</p>
+      </Container>
+    ),
+    []
   );
 }
 

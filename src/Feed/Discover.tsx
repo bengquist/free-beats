@@ -1,11 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import beat from "../../data/beat";
+import beat2 from "../../data/beat2";
 import BeatCard from "../Beat/BeatCard";
 import { fluidGrid } from "../Styles/helpers";
 
 function DiscoverFeed() {
-  const arr = [beat, beat, beat, beat, beat, beat, beat];
+  const arr = [beat, beat2, beat, beat, beat, beat, beat];
+
   return (
     <Container>
       {arr.map((beat, index) => (

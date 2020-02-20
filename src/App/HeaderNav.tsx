@@ -4,9 +4,10 @@ import {
   faUserCircle
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { CartContext } from "../Cart/CartContext";
 import routeCodes from "../Routes/routeCodes";
 import {
   flexSpaceBetween,
@@ -15,6 +16,8 @@ import {
 import HeaderNavLink from "./HeaderNavLink";
 
 function HeaderNav() {
+  const { cart } = useContext(CartContext);
+
   return (
     <Container>
       <Inner>
@@ -29,6 +32,7 @@ function HeaderNav() {
             <FontAwesomeIcon icon={faUpload} />
           </ButtonLink>
           <ButtonLink to={routeCodes.PROFILE}>
+            {cart.length}
             <FontAwesomeIcon icon={faShoppingCart} />
           </ButtonLink>
           <ButtonLink to={routeCodes.PROFILE}>
