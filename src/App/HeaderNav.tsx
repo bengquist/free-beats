@@ -32,8 +32,7 @@ function HeaderNav() {
             <FontAwesomeIcon icon={faUpload} />
           </ButtonLink>
           <ButtonLink to={routeCodes.PROFILE}>
-            {cart.length}
-            <FontAwesomeIcon icon={faShoppingCart} />
+            <FontAwesomeIcon icon={faShoppingCart} /> {cart.length}
           </ButtonLink>
           <ButtonLink to={routeCodes.PROFILE}>
             <FontAwesomeIcon icon={faUserCircle} />
