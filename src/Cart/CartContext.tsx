@@ -13,7 +13,11 @@ function CartProvider({ children }: { children: ReactNode }) {
   const [cart, setCart] = useState([]);
 
   const addToCart = (beat: Beat) => {
-    setCart([...cart, beat]);
+    const hasItemInCart = cart.find(cartBeat => cartBeat.id === beat.id);
+
+    if (!hasItemInCart) {
+      setCart([...cart, beat]);
+    }
   };
 
   const removeFromCart = (id: string) => {
