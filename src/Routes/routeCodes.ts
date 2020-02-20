@@ -1,8 +1,7 @@
 export default {
   AUTH: "/auth",
-  FEED_FOLLOWING: "/following",
-  FEED_DISCOVER: "/discover",
-  FEED_LIKED: "/feed/liked",
+  DISCOVER: "/discover",
   BATTLE: "/battle",
-  PROFILE: "/profile"
+  PROFILE: "/profile",
+  HOME: "/"
 };

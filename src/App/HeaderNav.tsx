@@ -1,11 +1,11 @@
 import {
-  faHeart,
   faShoppingCart,
   faUpload,
   faUserCircle
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import routeCodes from "../Routes/routeCodes";
 import {
@@ -19,27 +19,21 @@ function HeaderNav() {
     <Container>
       <Inner>
         <div>
-          <ButtonLink to={routeCodes.AUTH}>Log In</ButtonLink>
-          <ButtonLink to={routeCodes.FEED_FOLLOWING}>Following</ButtonLink>
-          <ButtonLink to={routeCodes.FEED_DISCOVER}>Discover</ButtonLink>
+          <LogoLink to={routeCodes.HOME}>FREE BEATS</LogoLink>
+          <ButtonLink to={routeCodes.DISCOVER}>Discover</ButtonLink>
           <ButtonLink to={routeCodes.BATTLE}>Battle</ButtonLink>
         </div>
 
         <div css={flexSpaceBetween}>
-          <ButtonLink to={routeCodes.FEED_LIKED}>
-            <FontAwesomeIcon icon={faHeart} />
-          </ButtonLink>
-          <ButtonLink to={routeCodes.PROFILE}>
-            <FontAwesomeIcon icon={faUserCircle} />
-          </ButtonLink>
           <ButtonLink to={routeCodes.PROFILE}>
             <FontAwesomeIcon icon={faUpload} />
           </ButtonLink>
           <ButtonLink to={routeCodes.PROFILE}>
             <FontAwesomeIcon icon={faShoppingCart} />
           </ButtonLink>
-
-          <Logo>FREE BEATS</Logo>
+          <ButtonLink to={routeCodes.PROFILE}>
+            <FontAwesomeIcon icon={faUserCircle} />
+          </ButtonLink>
         </div>
       </Inner>
     </Container>
@@ -76,7 +70,7 @@ const ButtonLink = styled(HeaderNavLink)`
   }
 `;
 
-const Logo = styled.div`
+const LogoLink = styled(Link)`
   padding: 1rem;
   font-weight: 800;
   color: ${props => props.theme.accent};

@@ -12,20 +12,24 @@ const client = new ApolloClient({
   uri: "http://localhost:4000/graphql"
 });
 
+const CartContext = React.createContext([]);
+
 function App() {
   return (
     <ApolloProvider client={client}>
-      <ThemeProvider theme={theme}>
-        <Router>
-          <Container>
-            <HeaderNav />
-            <Body>
-              <Routes />
-            </Body>
-            <GlobalStyle />
-          </Container>
-        </Router>
-      </ThemeProvider>
+      <CartContext.Provider value={[]}>
+        <ThemeProvider theme={theme}>
+          <Router>
+            <Container>
+              <HeaderNav />
+              <Body>
+                <Routes />
+              </Body>
+              <GlobalStyle />
+            </Container>
+          </Router>
+        </ThemeProvider>
+      </CartContext.Provider>
     </ApolloProvider>
   );
 }
