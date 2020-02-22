@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from "react"
+import styled from "styled-components"
 
 function Home() {
   return (
@@ -7,9 +7,9 @@ function Home() {
       <p>Home</p>
       <p>Yo</p>
     </Container>
-  );
+  )
 }
 
-export default Home;
+export default Home
 
-const Container = styled.div``;
+const Container = styled.div``

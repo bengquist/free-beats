@@ -1,9 +1,9 @@
-import React, { lazy, Suspense } from "react";
-import { Route, Switch } from "react-router-dom";
-import routeCodes from "./routeCodes";
+import React, { lazy, Suspense } from "react"
+import { Route, Switch } from "react-router-dom"
+import routeCodes from "./routeCodes"
 
-const Home = lazy(() => import("../Home/Home"));
-const Discover = lazy(() => import("../Feed/Discover"));
+const Home = lazy(() => import("../Home/Home"))
+const Discover = lazy(() => import("../Feed/Discover"))
 
 function Routes() {
   return (
@@ -13,7 +13,7 @@ function Routes() {
         <Route exact path="/" component={Home} />
       </Switch>
     </Suspense>
-  );
+  )
 }
 
-export default Routes;
+export default Routes

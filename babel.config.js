@@ -2,7 +2,7 @@ module.exports = {
   presets: [
     ["@babel/env", { targets: "last 2 chrome versions" }],
     "@babel/react",
-    "@babel/typescript"
+    "@babel/typescript",
   ],
-  plugins: ["babel-plugin-styled-components"]
-};
+  plugins: ["babel-plugin-styled-components"],
+}

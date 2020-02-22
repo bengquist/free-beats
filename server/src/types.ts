@@ -1,6 +1,6 @@
-import { Request, Response } from "express";
+import { Request, Response } from "express"
 
 export type AppContext = {
-  req: Request;
-  res: Response;
-};
+  req: Request
+  res: Response
+}

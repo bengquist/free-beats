@@ -12,4 +12,4 @@ export type Beat = {
   uploadDate: string;
   plays: number;
   purchased: number;
-};
+}

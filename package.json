@@ -5,7 +5,11 @@
   "author": "bengquist <engquist_blake@yahoo.com>",
   "scripts": {
     "dev": "webpack-dev-server --mode development --open --hot",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "lint": "eslint src --ext js,ts,tsx",
+    "format:prettier": "prettier --write \"**/*.@(ts|tsx|js|json|yml|css)\"",
+    "format:lintfix": "npm run lint -- --fix",
+    "format": "npm-run-all format:*"
   },
   "license": "MIT",
   "dependencies": {

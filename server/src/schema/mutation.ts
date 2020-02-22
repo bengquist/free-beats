@@ -1,5 +1,5 @@
-import { mutationType } from "nexus/dist";
+import { mutationType } from "nexus/dist"
 
 export const Mutation = mutationType({
-  definition(t) {}
-});
+  definition(t) {},
+})

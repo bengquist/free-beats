@@ -4,5 +4,5 @@ export default {
   SPOTLIGHT: "/spotlight",
   BATTLE: "/battle",
   PROFILE: "/profile",
-  HOME: "/"
-};
+  HOME: "/",
+}

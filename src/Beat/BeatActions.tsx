@@ -1,14 +1,14 @@
-import { faDownload, faPlay } from "@fortawesome/free-solid-svg-icons";
-import React from "react";
-import styled from "styled-components";
-import { flexSpaceBetween, spacedChildren } from "../Styles/helpers";
-import IconLabel from "../Styles/IconLabel";
-import BeatPriceLabel from "./BeatPriceLabel";
-import { Beat } from "./types";
+import { faDownload, faPlay } from "@fortawesome/free-solid-svg-icons"
+import React from "react"
+import styled from "styled-components"
+import { flexSpaceBetween, spacedChildren } from "../Styles/helpers"
+import IconLabel from "../Styles/IconLabel"
+import BeatPriceLabel from "./BeatPriceLabel"
+import { Beat } from "./types"
 
 type Props = {
   beat: Beat;
-};
+}
 
 function BeatActions({ beat }: Props) {
   return (
@@ -20,11 +20,11 @@ function BeatActions({ beat }: Props) {
         <BeatPriceLabel beat={beat} />
       </div>
     </Container>
-  );
+  )
 }
 
-export default BeatActions;
+export default BeatActions
 
 const Container = styled.div`
   ${flexSpaceBetween}
-`;
+`

@@ -1,22 +1,22 @@
 import {
   faShoppingCart,
   faUpload,
-  faUserCircle
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-import { CartContext } from "../Cart/CartContext";
-import routeCodes from "../Routes/routeCodes";
+  faUserCircle,
+} from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import React, { useContext } from "react"
+import { Link } from "react-router-dom"
+import styled from "styled-components"
+import { CartContext } from "../Cart/CartContext"
+import routeCodes from "../Routes/routeCodes"
 import {
   flexSpaceBetween,
-  primaryColorAccentBackground
-} from "../Styles/helpers";
-import HeaderNavLink from "./HeaderNavLink";
+  primaryColorAccentBackground,
+} from "../Styles/helpers"
+import HeaderNavLink from "./HeaderNavLink"
 
 function HeaderNav() {
-  const { cart } = useContext(CartContext);
+  const { cart } = useContext(CartContext)
 
   return (
     <Container>
@@ -41,15 +41,15 @@ function HeaderNav() {
         </div>
       </Inner>
     </Container>
-  );
+  )
 }
 
-export default HeaderNav;
+export default HeaderNav
 
 const Container = styled.header`
-  background: ${props => props.theme.primary};
+  background: ${(props) => props.theme.primary};
   box-shadow: 0 2px 5px black;
-`;
+`
 
 const Inner = styled.div`
   width: 100%;
@@ -62,20 +62,20 @@ const Inner = styled.div`
   .selected {
     ${primaryColorAccentBackground}
   }
-`;
+`
 
 const ButtonLink = styled(HeaderNavLink)`
   padding: 1rem;
   transition: 0.3s;
-  color: ${props => props.theme.white};
+  color: ${(props) => props.theme.white};
 
   :hover {
     ${primaryColorAccentBackground}
   }
-`;
+`
 
 const LogoLink = styled(Link)`
   padding: 1rem;
   font-weight: 800;
-  color: ${props => props.theme.accent};
-`;
+  color: ${(props) => props.theme.accent};
+`

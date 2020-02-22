@@ -1,5 +1,5 @@
-import audio from "../data/post-malone.mp3";
-import image from "../data/post-malone.png";
+import audio from "../data/post-malone.mp3"
+import image from "../data/post-malone.png"
 
 export default {
   id: "lak;fjalknmc",
@@ -14,5 +14,5 @@ export default {
   image: image,
   uploadDate: "03/02/2019",
   plays: 123,
-  purchased: 1
-};
+  purchased: 1,
+}
