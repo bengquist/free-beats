@@ -1,12 +1,18 @@
 import React, { createContext, ReactNode, useState } from "react"
+import Portal from "./Portal"
 
 export const ModalContext = createContext({})
 
 function ModalProvider({ children }: { children: ReactNode }) {
-  const [showModal, setShowModal] = useState(false)
+  const [modal, setModal] = useState()
+
+  const open = (node: ReactNode) => {
+    setModal(node)
+  }
 
   return (
-    <ModalContext.Provider value={{ showModal, setShowModal }}>
+    <ModalContext.Provider value={{ open }}>
+      {modal && <Portal>{modal}</Portal>}
       {children}
     </ModalContext.Provider>
   )

@@ -6,7 +6,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React, { useContext } from "react"
 import { Link } from "react-router-dom"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { CartContext } from "../Cart/CartContext"
 import routeCodes from "../Routes/routeCodes"
 import {
@@ -32,9 +32,9 @@ function HeaderNav() {
           <ButtonLink to={routeCodes.PROFILE}>
             <FontAwesomeIcon icon={faUpload} />
           </ButtonLink>
-          <ButtonLink to={routeCodes.PROFILE}>
+          <button css={buttonStyle}>
             <FontAwesomeIcon icon={faShoppingCart} /> {cart.length}
-          </ButtonLink>
+          </button>
           <ButtonLink to={routeCodes.PROFILE}>
             <FontAwesomeIcon icon={faUserCircle} />
           </ButtonLink>
@@ -63,8 +63,13 @@ const Inner = styled.div`
     ${primaryColorAccentBackground}
   }
 `
+const LogoLink = styled(Link)`
+  padding: 1rem;
+  font-weight: 800;
+  color: ${(props) => props.theme.accent};
+`
 
-const ButtonLink = styled(HeaderNavLink)`
+const buttonStyle = css`
   padding: 1rem;
   transition: 0.3s;
   color: ${(props) => props.theme.white};
@@ -74,8 +79,6 @@ const ButtonLink = styled(HeaderNavLink)`
   }
 `
 
-const LogoLink = styled(Link)`
-  padding: 1rem;
-  font-weight: 800;
-  color: ${(props) => props.theme.accent};
+const ButtonLink = styled(HeaderNavLink)`
+  ${buttonStyle}
 `
