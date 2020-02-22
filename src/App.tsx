@@ -4,7 +4,7 @@ import React from "react"
 import { BrowserRouter as Router } from "react-router-dom"
 import styled, { ThemeProvider } from "styled-components"
 import HeaderNav from "./App/HeaderNav"
-import CartProvider from "./Cart/CartContext"
+import ContextProviders from "./ContextProviders"
 import Routes from "./Routes/Routes"
 import GlobalStyle from "./Styles/GlobalStyle"
 import theme from "./Styles/theme"
@@ -16,7 +16,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <CartProvider>
+      <ContextProviders>
         <ThemeProvider theme={theme}>
           <Router>
             <Container>
@@ -28,7 +28,7 @@ function App() {
             </Container>
           </Router>
         </ThemeProvider>
-      </CartProvider>
+      </ContextProviders>
     </ApolloProvider>
   )
 }

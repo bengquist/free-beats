@@ -32,9 +32,9 @@ function HeaderNav() {
           <ButtonLink to={routeCodes.PROFILE}>
             <FontAwesomeIcon icon={faUpload} />
           </ButtonLink>
-          <button css={buttonStyle}>
+          <Button>
             <FontAwesomeIcon icon={faShoppingCart} /> {cart.length}
-          </button>
+          </Button>
           <ButtonLink to={routeCodes.PROFILE}>
             <FontAwesomeIcon icon={faUserCircle} />
           </ButtonLink>
@@ -80,5 +80,9 @@ const buttonStyle = css`
 `
 
 const ButtonLink = styled(HeaderNavLink)`
+  ${buttonStyle}
+`
+
+const Button = styled.button`
   ${buttonStyle}
 `
