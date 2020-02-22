@@ -24,6 +24,7 @@ function HeaderNav() {
         <div>
           <LogoLink to={routeCodes.HOME}>FREE BEATS</LogoLink>
           <ButtonLink to={routeCodes.DISCOVER}>Discover</ButtonLink>
+          <ButtonLink to={routeCodes.SPOTLIGHT}>Spotlight</ButtonLink>
           <ButtonLink to={routeCodes.BATTLE}>Battle</ButtonLink>
         </div>
 
