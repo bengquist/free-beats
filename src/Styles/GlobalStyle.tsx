@@ -41,6 +41,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
+        min-height: 100vh;
         line-height:1;
         background: #f2f2f2;
     }

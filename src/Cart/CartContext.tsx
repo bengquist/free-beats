@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from "react"
+import React, { ReactNode, useContext, useState } from "react"
 import { Beat } from "../Beat/types"
 
 type ContextProps = {
@@ -7,9 +7,18 @@ type ContextProps = {
   removeFromCart: (id: string) => void
 }
 
+type ProviderProps = {
+  children: ReactNode
+  value?: Partial<ContextProps>
+}
+
 export const CartContext = React.createContext<Partial<ContextProps>>({})
 
-function CartProvider({ children }: { children: ReactNode }) {
+export const useCartContext = () => {
+  return useContext(CartContext)
+}
+
+function CartProvider({ children, value }: ProviderProps) {
   const [cart, setCart] = useState([])
 
   const addToCart = (beat: Beat) => {
@@ -27,7 +36,7 @@ function CartProvider({ children }: { children: ReactNode }) {
   }
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
+    <CartContext.Provider value={value || { cart, addToCart, removeFromCart }}>
       {children}
     </CartContext.Provider>
   )

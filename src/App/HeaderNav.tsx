@@ -7,7 +7,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React, { useContext } from "react"
 import { Link } from "react-router-dom"
 import styled, { css } from "styled-components"
-import { CartContext } from "../Cart/CartContext"
+import CartProvider, { CartContext } from "../Cart/CartContext"
+import CartModal from "../Cart/CartModal"
+import { ModalContext } from "../Modal/ModalContext"
 import routeCodes from "../Routes/routeCodes"
 import {
   flexSpaceBetween,
@@ -16,7 +18,16 @@ import {
 import HeaderNavLink from "./HeaderNavLink"
 
 function HeaderNav() {
-  const { cart } = useContext(CartContext)
+  const cartValues = useContext(CartContext)
+  const { open } = useContext(ModalContext)
+
+  const openCartModal = () => {
+    open(
+      <CartProvider value={cartValues}>
+        <CartModal />
+      </CartProvider>,
+    )
+  }
 
   return (
     <Container>
@@ -32,8 +43,8 @@ function HeaderNav() {
           <ButtonLink to={routeCodes.PROFILE}>
             <FontAwesomeIcon icon={faUpload} />
           </ButtonLink>
-          <Button>
-            <FontAwesomeIcon icon={faShoppingCart} /> {cart.length}
+          <Button onClick={openCartModal}>
+            <FontAwesomeIcon icon={faShoppingCart} /> {cartValues.cart.length}
           </Button>
           <ButtonLink to={routeCodes.PROFILE}>
             <FontAwesomeIcon icon={faUserCircle} />
