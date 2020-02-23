@@ -23,6 +23,7 @@ export interface NexusGenRootTypes {
   Beat: { // root type
     name: string; // String!
   }
+  Mutation: {};
   Payment: { // root type
     total: number; // Float!
   }
@@ -41,16 +42,23 @@ export interface NexusGenFieldTypes {
   Beat: { // field return type
     name: string; // String!
   }
+  Mutation: { // field return type
+    payment: NexusGenRootTypes['Payment']; // Payment!
+  }
   Payment: { // field return type
     total: number; // Float!
   }
   Query: { // field return type
     beat: NexusGenRootTypes['Beat']; // Beat!
-    payment: NexusGenRootTypes['Payment']; // Payment!
   }
 }
 
 export interface NexusGenArgTypes {
+  Mutation: {
+    payment: { // args
+      amount: number; // Float!
+    }
+  }
 }
 
 export interface NexusGenAbstractResolveReturnTypes {
@@ -58,7 +66,7 @@ export interface NexusGenAbstractResolveReturnTypes {
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames = "Beat" | "Payment" | "Query";
+export type NexusGenObjectNames = "Beat" | "Mutation" | "Payment" | "Query";
 
 export type NexusGenInputNames = never;
 

@@ -1,5 +1,8 @@
 import { objectType } from "nexus"
-import { ObjectDefinitionBlock } from "nexus/dist/core"
+import { floatArg, ObjectDefinitionBlock } from "nexus/dist/core"
+import Stripe from "stripe"
+
+const stripe = new Stripe(process.env.STRIPE_TEST_SECRET_KEY)
 
 export const Payment = objectType({
   name: "Payment",
@@ -8,13 +11,26 @@ export const Payment = objectType({
   },
 })
 
-export const usePaymentQuery = (t: ObjectDefinitionBlock<"Query">) => {
+export const usePaymentMutation = (t: ObjectDefinitionBlock<"Mutation">) => {
   t.field("payment", {
     type: Payment,
 
-    async resolve() {
+    args: {
+      amount: floatArg({ nullable: false }),
+    },
+
+    async resolve(_, { amount }) {
+      const paymentIntent = await stripe.paymentIntents.create({
+        amount: amount,
+        currency: "usd",
+        payment_method_types: ["card"],
+        receipt_email: "jenny.rosen@example.com",
+      })
+
+      console.log(paymentIntent)
+
       return {
-        total: 1.1,
+        total: paymentIntent.amount,
       }
     },
   })

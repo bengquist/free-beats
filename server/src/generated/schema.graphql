@@ -6,11 +6,14 @@ type Beat {
   name: String!
 }
 
+type Mutation {
+  payment(amount: Float!): Payment!
+}
+
 type Payment {
   total: Float!
 }
 
 type Query {
   beat: Beat!
-  payment: Payment!
 }

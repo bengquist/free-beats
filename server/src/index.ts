@@ -4,11 +4,12 @@ import cors from "cors"
 import "dotenv/config"
 import express from "express"
 import { makeSchema } from "nexus"
+import { Mutation } from "./schema/mutation"
 import { Query } from "./schema/query"
 import { AppContext } from "./types"
 
 const schema = makeSchema({
-  types: [Query],
+  types: [Query, Mutation],
   outputs: {
     schema: __dirname + "/generated/schema.graphql",
     typegen: __dirname + "/generated/typings.ts",
