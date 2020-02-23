@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, useState } from "react"
+import React, { createContext, ReactNode, useContext, useState } from "react"
 import styled, { ThemeProvider } from "styled-components"
 import { flexCenter } from "../Styles/helpers"
 import { fadeIn } from "../Styles/keyframes"
@@ -11,6 +11,8 @@ type ContextProps = {
 }
 
 export const ModalContext = createContext<Partial<ContextProps>>({})
+
+export const useModalContext = () => useContext(ModalContext)
 
 function ModalProvider({ children }: { children: ReactNode }) {
   const [modal, setModal] = useState()

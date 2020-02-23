@@ -15,10 +15,10 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <ApolloProvider client={client}>
-      <ContextProviders>
+    <Router>
+      <ApolloProvider client={client}>
         <ThemeProvider theme={theme}>
-          <Router>
+          <ContextProviders>
             <Container>
               <HeaderNav />
               <Body>
@@ -26,10 +26,11 @@ function App() {
               </Body>
               <GlobalStyle />
             </Container>
-          </Router>
+            <div id="modal" />
+          </ContextProviders>
         </ThemeProvider>
-      </ContextProviders>
-    </ApolloProvider>
+      </ApolloProvider>
+    </Router>
   )
 }
 

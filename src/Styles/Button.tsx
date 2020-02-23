@@ -1,5 +1,5 @@
 import React, { ComponentPropsWithoutRef, ReactNode } from "react"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import {
   accentColorPrimaryBackground,
   flexAlignCenter,
@@ -18,7 +18,7 @@ function Button({ children, ...props }: Props) {
 
 export default Button
 
-const Container = styled.button`
+export const buttonStyles = css`
   ${flexAlignCenter};
   ${spacedChildren(0.25)};
   ${round()};
@@ -35,4 +35,8 @@ const Container = styled.button`
     outline: none;
     ${accentColorPrimaryBackground}
   }
+`
+
+const Container = styled.button`
+  ${buttonStyles}
 `

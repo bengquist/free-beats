@@ -1,12 +1,16 @@
 import React from "react"
+import { Link } from "react-router-dom"
 import styled from "styled-components"
-import Button from "../Styles/Button"
+import { useModalContext } from "../Modal/ModalContext"
+import routeCodes from "../Routes/routeCodes"
+import { buttonStyles } from "../Styles/Button"
 import { flexJustifyEnd, spacedChildren } from "../Styles/helpers"
 import CartBeatCard from "./CartBeatCard"
 import { useCartContext } from "./CartContext"
 
 function CartModal() {
   const { cart, totalPrice } = useCartContext()
+  const { close } = useModalContext()
 
   return (
     <Container onClick={(e) => e.stopPropagation()}>
@@ -18,7 +22,9 @@ function CartModal() {
       </div>
       <Actions>
         <div>Total: ${totalPrice}</div>
-        <Button>Checkout</Button>
+        <Link css={buttonStyles} to={routeCodes.CHECKOUT} onClick={close}>
+          Checkout
+        </Link>
       </Actions>
     </Container>
   )

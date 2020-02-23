@@ -10,8 +10,8 @@ function Routes() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Switch>
-        <Route path={routeCodes.DISCOVER} component={Discover} />
         <Route path={routeCodes.CHECKOUT} component={Checkout} />
+        <Route path={routeCodes.DISCOVER} component={Discover} />
         <Route exact path="/" component={Home} />
       </Switch>
     </Suspense>

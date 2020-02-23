@@ -17,9 +17,7 @@ type ProviderProps = {
 
 export const CartContext = React.createContext<Partial<ContextProps>>({})
 
-export const useCartContext = () => {
-  return useContext(CartContext)
-}
+export const useCartContext = () => useContext(CartContext)
 
 function CartProvider({ children, value }: ProviderProps) {
   const [cart, setCart] = useState([beat, beat2])
