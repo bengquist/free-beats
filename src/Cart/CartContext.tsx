@@ -1,4 +1,6 @@
 import React, { ReactNode, useContext, useState } from "react"
+import beat from "../../data/beat"
+import beat2 from "../../data/beat2"
 import { Beat } from "../Beat/types"
 
 type ContextProps = {
@@ -19,7 +21,7 @@ export const useCartContext = () => {
 }
 
 function CartProvider({ children, value }: ProviderProps) {
-  const [cart, setCart] = useState([])
+  const [cart, setCart] = useState([beat, beat2])
 
   const addToCart = (beat: Beat) => {
     const hasItemInCart = cart.find((cartBeat) => cartBeat.id === beat.id)

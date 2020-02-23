@@ -7,7 +7,7 @@ import BeatPriceLabel from "./BeatPriceLabel"
 import { Beat } from "./types"
 
 type Props = {
-  beat: Beat;
+  beat: Beat
 }
 
 function BeatActions({ beat }: Props) {
@@ -15,7 +15,7 @@ function BeatActions({ beat }: Props) {
     <Container>
       <IconLabel icon={faPlay} text={beat.plays} />
 
-      <div css={[flexSpaceBetween, spacedChildren(0, 0, 0, 0.25)]}>
+      <div css={[flexSpaceBetween, spacedChildren(0.25)]}>
         <IconLabel icon={faDownload} onClick={() => console.log("yo")} />
         <BeatPriceLabel beat={beat} />
       </div>

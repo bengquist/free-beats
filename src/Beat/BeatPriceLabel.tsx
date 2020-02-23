@@ -13,7 +13,7 @@ import {
 import { Beat } from "./types"
 
 type Props = {
-  beat: Beat;
+  beat: Beat
 }
 
 function BeatPriceLabel({ beat }: Props) {
@@ -31,7 +31,7 @@ export default BeatPriceLabel
 
 const Container = styled.button`
   ${flexAlignCenter};
-  ${spacedChildren(0, 0.25)};
+  ${spacedChildren(0.25)};
   ${round()};
   padding: 0.25rem;
   transition: 0.3s;

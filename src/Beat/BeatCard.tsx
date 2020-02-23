@@ -9,7 +9,7 @@ import BeatTypeLabel from "./BeatTypeLabel"
 import { Beat } from "./types"
 
 type Props = {
-  beat: Beat;
+  beat: Beat
 }
 
 function BeatCard({ beat }: Props) {
@@ -37,6 +37,7 @@ function BeatCard({ beat }: Props) {
 export default BeatCard
 
 const Container = styled.div`
+${spacedChildren(0, 0.5)}
   box-shadow: ${(props) => props.theme.boxShadow()};
   background: ${(props) => props.theme.white};
   width: 100%;
@@ -53,7 +54,7 @@ const Container = styled.div`
 
 const Info = styled.div`
   padding: 0 0.5rem 0.5rem 0.5rem;
-  ${spacedChildren(0.5, 0, 0, 0)}
+  ${spacedChildren(0, 0.5)}
 `
 
 const Title = styled.h1`
@@ -71,7 +72,5 @@ const Creator = styled(Link)`
 `
 
 const Labels = styled.div`
-  > * {
-    margin: 0 0.1rem 0.1rem 0;
-  }
+  ${spacedChildren(0.1)}
 `

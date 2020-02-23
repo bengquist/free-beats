@@ -9,9 +9,9 @@ import {
 } from "../Styles/helpers"
 
 type Props = {
-  icon: IconProp;
-  text?: string | number;
-  onClick?: () => void;
+  icon: IconProp
+  text?: string | number
+  onClick?: () => void
 }
 
 function IconLabel({ icon, text, onClick }: Props) {
@@ -43,7 +43,7 @@ const Container = styled.button<{ hasAction?: boolean }>`
   
 
   color: ${(props) => props.theme.primary};
-  ${spacedChildren(0, 0.1, 0, 0.1)}
+  ${spacedChildren(0.1)}
   ${round()}
 
   ${(props) => props.hasAction && invertStyles}

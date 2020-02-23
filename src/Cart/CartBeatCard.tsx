@@ -26,8 +26,17 @@ export default CartBeatCard
 const Container = styled.div`
   display: flex;
 `
-const Image = styled.img``
+const Image = styled.img`
+  max-height: 100px;
+`
 
-const Body = styled.div``
+const Body = styled.div`
+  padding: 0.5rem 1rem;
+  flex: 1;
+
+  > h1 {
+    font-weight: 800;
+  }
+`
 
 const Actions = styled.div``

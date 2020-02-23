@@ -7,7 +7,7 @@ import BeatAudioVisualizer from "./BeatAudioVisualizer"
 import { Beat } from "./types"
 
 type Props = {
-  beat: Beat;
+  beat: Beat
 }
 
 function BeatAudio({ beat }: Props) {
@@ -64,6 +64,7 @@ const Container = styled.div<{ background: string }>`
   position: relative;
   background: url(${(props) => props.background});
   background-size: cover;
+  background-position: center;
 
   padding-bottom: 50%;
 `

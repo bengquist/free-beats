@@ -1,10 +1,10 @@
 import { css } from "styled-components"
 
 type FluidGridOptions = {
-  minWidth?: number;
-  fullWidthBreakpoint?: number;
-  gap?: string;
-  method?: "auto-fill" | "auto-fit";
+  minWidth?: number
+  fullWidthBreakpoint?: number
+  gap?: string
+  method?: "auto-fill" | "auto-fit"
 }
 
 export const fluidGrid = ({
@@ -24,9 +24,14 @@ export const fluidGrid = ({
   }
 `
 
-export const spacedChildren = (top = 0, right = 0, bottom = 0, left = 0) => css`
+export const spacedChildren = (right = 0, bottom = 0) => css`
   > * {
-    margin: ${top}rem ${right}rem ${bottom}rem ${left}rem;
+    margin-right: ${right}rem;
+    margin-bottom: ${bottom}rem;
+
+    :last-child {
+      margin: 0;
+    }
   }
 `
 
