@@ -48,6 +48,8 @@ const ModalBackground = styled.div`
   height: 100%;
   width: 100%;
   background: rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+
   /* to make sure this doesn't get overridden */
   z-index: 100;
 

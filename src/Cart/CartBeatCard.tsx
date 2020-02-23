@@ -18,7 +18,8 @@ function CartBeatCard({ beat }: Props) {
       <Image src={beat.image} />
       <Body>
         <h1>{beat.title}</h1>
-        <p>Producer: {beat.creatorName}</p>
+        <p style={{ marginBottom: 20 }}>Producer: {beat.creatorName}</p>
+
         <p>Price: ${beat.price}</p>
       </Body>
       <Actions>
