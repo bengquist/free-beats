@@ -1,7 +1,8 @@
 import React, { createContext, ReactNode, useState } from "react"
-import styled from "styled-components"
+import styled, { ThemeProvider } from "styled-components"
 import { flexCenter } from "../Styles/helpers"
 import { fadeIn } from "../Styles/keyframes"
+import theme from "../Styles/theme"
 import Portal from "./Portal"
 
 type ContextProps = {
@@ -23,14 +24,16 @@ function ModalProvider({ children }: { children: ReactNode }) {
   }
 
   return (
-    <ModalContext.Provider value={{ open, close }}>
-      {modal && (
-        <Portal>
-          <ModalBackground onClick={close}>{modal}</ModalBackground>
-        </Portal>
-      )}
-      {children}
-    </ModalContext.Provider>
+    <ThemeProvider theme={theme}>
+      <ModalContext.Provider value={{ open, close }}>
+        {modal && (
+          <Portal>
+            <ModalBackground onClick={close}>{modal}</ModalBackground>
+          </Portal>
+        )}
+        {children}
+      </ModalContext.Provider>
+    </ThemeProvider>
   )
 }
 

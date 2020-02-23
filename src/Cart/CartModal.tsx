@@ -10,11 +10,11 @@ function CartModal() {
   return (
     <Container onClick={(e) => e.stopPropagation()}>
       <Title>Cart</Title>
-      <Body>
+      <div css={spacedChildren(0, 0.5)}>
         {cart.map((beat) => (
           <CartBeatCard key={beat.id} beat={beat} />
         ))}
-      </Body>
+      </div>
       <Actions>
         <button>Checkout</button>
       </Actions>
@@ -25,7 +25,7 @@ function CartModal() {
 export default CartModal
 
 const Container = styled.div`
-  background: white;
+  background: ${(props) => props.theme.shadedWhite};
   width: 100%;
   max-width: 600px;
   padding: 1rem;
@@ -38,7 +38,5 @@ const Title = styled.h1`
   text-align: center;
   font-size: 1.5rem;
 `
-
-const Body = styled.div``
 
 const Actions = styled.div``
