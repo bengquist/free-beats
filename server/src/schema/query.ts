@@ -1,13 +1,10 @@
 import { queryType } from "nexus"
-import { Beat } from "./beat"
+import { useBeatQuery } from "./beat"
+import { usePaymentQuery } from "./payment"
 
 export const Query = queryType({
   definition(t) {
-    t.field("beat", {
-      type: Beat,
-      resolve(_) {
-        return { name: "yo" }
-      },
-    })
+    useBeatQuery(t)
+    usePaymentQuery(t)
   },
 })

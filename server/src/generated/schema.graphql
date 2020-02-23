@@ -6,6 +6,11 @@ type Beat {
   name: String!
 }
 
+type Payment {
+  total: Float!
+}
+
 type Query {
   beat: Beat!
+  payment: Payment!
 }
