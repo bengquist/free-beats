@@ -1,13 +1,18 @@
+import { faTrashAlt } from "@fortawesome/free-regular-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React from "react"
 import styled from "styled-components"
 import { Beat } from "../Beat/types"
 import { spacedChildren } from "../Styles/helpers"
+import { useCartContext } from "./CartContext"
 
 type Props = {
   beat: Beat
 }
 
 function CartBeatCard({ beat }: Props) {
+  const { removeFromCart } = useCartContext()
+
   return (
     <Container>
       <Image src={beat.image} />
@@ -17,7 +22,9 @@ function CartBeatCard({ beat }: Props) {
         <p>Price: ${beat.price}</p>
       </Body>
       <Actions>
-        <button>Remove</button>
+        <button onClick={() => removeFromCart(beat.id)} style={{ padding: 10 }}>
+          <FontAwesomeIcon icon={faTrashAlt} />
+        </button>
       </Actions>
     </Container>
   )
@@ -45,4 +52,6 @@ const Body = styled.div`
   }
 `
 
-const Actions = styled.div``
+const Actions = styled.div`
+  padding: 1rem;
+`

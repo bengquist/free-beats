@@ -4,12 +4,14 @@ import routeCodes from "./routeCodes"
 
 const Home = lazy(() => import("../Home/Home"))
 const Discover = lazy(() => import("../Feed/Discover"))
+const Checkout = lazy(() => import("../Checkout/Checkout"))
 
 function Routes() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Switch>
         <Route path={routeCodes.DISCOVER} component={Discover} />
+        <Route path={routeCodes.CHECKOUT} component={Checkout} />
         <Route exact path="/" component={Home} />
       </Switch>
     </Suspense>

@@ -6,7 +6,7 @@ import CartBeatCard from "./CartBeatCard"
 import { useCartContext } from "./CartContext"
 
 function CartModal() {
-  const { cart } = useCartContext()
+  const { cart, totalPrice } = useCartContext()
 
   return (
     <Container onClick={(e) => e.stopPropagation()}>
@@ -17,6 +17,7 @@ function CartModal() {
         ))}
       </div>
       <Actions>
+        <div>Total: ${totalPrice}</div>
         <Button>Checkout</Button>
       </Actions>
     </Container>
@@ -41,5 +42,6 @@ const Title = styled.h1`
 `
 
 const Actions = styled.div`
-  ${flexJustifyEnd}
+  ${flexJustifyEnd};
+  ${spacedChildren(1)}
 `
