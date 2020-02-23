@@ -12,8 +12,8 @@ type Props = ComponentPropsWithoutRef<"button"> & {
   children: ReactNode
 }
 
-function Button({ children }: Props) {
-  return <Container>{children}</Container>
+function Button({ children, ...props }: Props) {
+  return <Container {...props}>{children}</Container>
 }
 
 export default Button
@@ -22,7 +22,7 @@ const Container = styled.button`
   ${flexAlignCenter};
   ${spacedChildren(0.25)};
   ${round()};
-  padding: 0.25rem;
+  padding: 0.5rem;
   transition: 0.3s;
 
   ${primaryColorAccentBackground};
@@ -32,6 +32,7 @@ const Container = styled.button`
   }
 
   :focus {
-    outline: ${(props) => props.theme.primary} solid 2px;
+    outline: none;
+    ${accentColorPrimaryBackground}
   }
 `

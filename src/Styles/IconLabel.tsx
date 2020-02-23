@@ -26,7 +26,7 @@ function IconLabel({ icon, text, onClick }: Props) {
 export default IconLabel
 
 const invertStyles = css`
-  padding: 0 0.25rem;
+  padding: 0.5rem;
   transition: 0.3s;
 
   ${accentColorPrimaryBackground};

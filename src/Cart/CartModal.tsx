@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
-import { spacedChildren } from "../Styles/helpers"
+import Button from "../Styles/Button"
+import { flexJustifyEnd, spacedChildren } from "../Styles/helpers"
 import CartBeatCard from "./CartBeatCard"
 import { useCartContext } from "./CartContext"
 
@@ -16,7 +17,7 @@ function CartModal() {
         ))}
       </div>
       <Actions>
-        <button>Checkout</button>
+        <Button>Checkout</Button>
       </Actions>
     </Container>
   )
@@ -39,4 +40,6 @@ const Title = styled.h1`
   font-size: 1.5rem;
 `
 
-const Actions = styled.div``
+const Actions = styled.div`
+  ${flexJustifyEnd}
+`
