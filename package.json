@@ -19,6 +19,8 @@
     "@fortawesome/free-regular-svg-icons": "^5.12.1",
     "@fortawesome/free-solid-svg-icons": "^5.12.1",
     "@fortawesome/react-fontawesome": "^0.1.8",
+    "@stripe/react-stripe-js": "^1.0.2",
+    "@stripe/stripe-js": "^1.0.1",
     "apollo-boost": "^0.4.7",
     "eslint": "^6.8.0",
     "graphql": "^14.6.0",

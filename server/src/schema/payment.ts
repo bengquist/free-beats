@@ -7,7 +7,7 @@ const stripe = new Stripe(process.env.STRIPE_TEST_SECRET_KEY)
 export const Payment = objectType({
   name: "Payment",
   definition(t) {
-    t.float("total")
+    t.float("total"), t.string("paymentSecret")
   },
 })
 
@@ -31,6 +31,7 @@ export const usePaymentMutation = (t: ObjectDefinitionBlock<"Mutation">) => {
 
       return {
         total: paymentIntent.amount,
+        paymentSecret: paymentIntent.client_secret,
       }
     },
   })

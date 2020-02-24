@@ -5,11 +5,11 @@ import ModalProvider from "./Modal/ModalContext"
 
 function ContextProviders({ children }: { children: ReactNode }) {
   return (
-    <ModalProvider>
-      <CartProvider>
-        <AudioProvider>{children}</AudioProvider>
-      </CartProvider>
-    </ModalProvider>
+    <CartProvider>
+      <AudioProvider>
+        <ModalProvider>{children}</ModalProvider>
+      </AudioProvider>
+    </CartProvider>
   )
 }
 

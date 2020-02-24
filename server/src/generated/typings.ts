@@ -25,6 +25,7 @@ export interface NexusGenRootTypes {
   }
   Mutation: {};
   Payment: { // root type
+    paymentSecret: string; // String!
     total: number; // Float!
   }
   Query: {};
@@ -46,6 +47,7 @@ export interface NexusGenFieldTypes {
     payment: NexusGenRootTypes['Payment']; // Payment!
   }
   Payment: { // field return type
+    paymentSecret: string; // String!
     total: number; // Float!
   }
   Query: { // field return type

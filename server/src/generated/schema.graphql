@@ -11,6 +11,7 @@ type Mutation {
 }
 
 type Payment {
+  paymentSecret: String!
   total: Float!
 }
 
