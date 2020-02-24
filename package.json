@@ -47,6 +47,7 @@
     "babel-loader": "^8.0.6",
     "babel-plugin-styled-components": "^1.10.7",
     "babel-preset-env": "^1.7.0",
+    "dotenv": "^8.2.0",
     "eslint-loader": "^3.0.3",
     "eslint-plugin-react": "^7.18.3",
     "file-loader": "^5.0.2",
