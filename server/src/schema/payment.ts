@@ -27,8 +27,6 @@ export const usePaymentMutation = (t: ObjectDefinitionBlock<"Mutation">) => {
         receipt_email: "jenny.rosen@example.com",
       })
 
-      console.log(paymentIntent)
-
       return {
         total: paymentIntent.amount,
         paymentSecret: paymentIntent.client_secret,

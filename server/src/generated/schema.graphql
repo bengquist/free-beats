@@ -8,6 +8,8 @@ type Beat {
 
 type Mutation {
   payment(amount: Float!): Payment!
+  signin(password: String!, user: String!): User!
+  signup(email: String!, password: String!, username: String!): User!
 }
 
 type Payment {
@@ -17,4 +19,12 @@ type Payment {
 
 type Query {
   beat: Beat!
+  me: User!
+  user(user: String!): User!
+}
+
+type User {
+  email: String!
+  id: String!
+  username: String!
 }

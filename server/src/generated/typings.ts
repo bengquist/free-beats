@@ -29,6 +29,11 @@ export interface NexusGenRootTypes {
     total: number; // Float!
   }
   Query: {};
+  User: { // root type
+    email: string; // String!
+    id: string; // String!
+    username: string; // String!
+  }
   String: string;
   Int: number;
   Float: number;
@@ -45,6 +50,8 @@ export interface NexusGenFieldTypes {
   }
   Mutation: { // field return type
     payment: NexusGenRootTypes['Payment']; // Payment!
+    signin: NexusGenRootTypes['User']; // User!
+    signup: NexusGenRootTypes['User']; // User!
   }
   Payment: { // field return type
     paymentSecret: string; // String!
@@ -52,6 +59,13 @@ export interface NexusGenFieldTypes {
   }
   Query: { // field return type
     beat: NexusGenRootTypes['Beat']; // Beat!
+    me: NexusGenRootTypes['User']; // User!
+    user: NexusGenRootTypes['User']; // User!
+  }
+  User: { // field return type
+    email: string; // String!
+    id: string; // String!
+    username: string; // String!
   }
 }
 
@@ -59,6 +73,20 @@ export interface NexusGenArgTypes {
   Mutation: {
     payment: { // args
       amount: number; // Float!
+    }
+    signin: { // args
+      password: string; // String!
+      user: string; // String!
+    }
+    signup: { // args
+      email: string; // String!
+      password: string; // String!
+      username: string; // String!
+    }
+  }
+  Query: {
+    user: { // args
+      user: string; // String!
     }
   }
 }
@@ -68,7 +96,7 @@ export interface NexusGenAbstractResolveReturnTypes {
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames = "Beat" | "Mutation" | "Payment" | "Query";
+export type NexusGenObjectNames = "Beat" | "Mutation" | "Payment" | "Query" | "User";
 
 export type NexusGenInputNames = never;
 
