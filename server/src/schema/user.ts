@@ -1,14 +1,9 @@
 import { AuthenticationError } from "apollo-server-express"
 import bcrypt from "bcrypt"
-import jwt from "jsonwebtoken"
 import { objectType } from "nexus"
 import { ObjectDefinitionBlock, stringArg } from "nexus/dist/core"
+import { createTokens } from "../helpers"
 import User from "../models/User"
-
-const {
-  JWT_ACCESS_TOKEN_SECRET = "",
-  JWT_REFRESH_TOKEN_SECRET = "",
-} = process.env
 
 export const UserType = objectType({
   name: "User",
@@ -70,13 +65,11 @@ export const useUserQuery = (t: ObjectDefinitionBlock<"Query">) => {
 export const useUserMutation = (t: ObjectDefinitionBlock<"Mutation">) => {
   t.field("signup", {
     type: UserType,
-
     args: {
       username: stringArg({ nullable: false }),
       email: stringArg({ nullable: false }),
       password: stringArg({ nullable: false }),
     },
-
     async resolve(_, { username, email, password }, { res }) {
       const userWithUsername = await User.findOne({ username })
       const userWithEmail = await User.findOne({ email })
@@ -96,23 +89,7 @@ export const useUserMutation = (t: ObjectDefinitionBlock<"Mutation">) => {
         password: hashedPassword,
       })
 
-      const refreshToken = jwt.sign(
-        { userId: newUser.id },
-        JWT_REFRESH_TOKEN_SECRET,
-        {
-          expiresIn: "7d",
-        },
-      )
-      const accessToken = jwt.sign(
-        { userId: newUser.id },
-        JWT_ACCESS_TOKEN_SECRET,
-        {
-          expiresIn: "15m",
-        },
-      )
-
-      res.cookie("refresh-token", refreshToken, { expiresIn: 60 * 60 * 24 * 7 })
-      res.cookie("access-token", accessToken, { expiresIn: 60 * 60 * 15 })
+      createTokens(res, newUser.id)
 
       return {
         id: newUser.id,
@@ -144,27 +121,7 @@ export const useUserMutation = (t: ObjectDefinitionBlock<"Mutation">) => {
           throw new AuthenticationError("Incorrect password")
         }
 
-        console.log(data)
-
-        const refreshToken = jwt.sign(
-          { userId: data.id },
-          JWT_REFRESH_TOKEN_SECRET || "",
-          {
-            expiresIn: "7d",
-          },
-        )
-        const accessToken = jwt.sign(
-          { userId: data.id },
-          JWT_ACCESS_TOKEN_SECRET || "",
-          {
-            expiresIn: "15m",
-          },
-        )
-
-        res.cookie("refresh-token", refreshToken, {
-          expiresIn: 60 * 60 * 24 * 7,
-        })
-        res.cookie("access-token", accessToken, { expiresIn: 60 * 60 * 15 })
+        createTokens(res, data.id)
 
         return {
           id: data.id,
