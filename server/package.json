@@ -8,7 +8,7 @@
     "dev": "ts-node-dev --transpile-only --no-notify src/index"
   },
   "dependencies": {
-    "apollo-server-express": "^2.10.1",
+    "apollo-server-express": "^2.14.2",
     "bcrypt": "^4.0.1",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
